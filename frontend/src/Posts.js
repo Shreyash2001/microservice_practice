@@ -1,8 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 function Posts() {
     const [title, setTitle] = useState("");
+    const [posts, setPosts] = useState({});
+
+    const fetchPost = async() => {
+      const {data} = await axios.get("http://localhost:4000/posts");
+      setPosts(data);
+    }
+
+    useEffect(() => {
+      fetchPost();
+    }, []);
+
+    const renderPost = Object.values(posts)?.map((post) => {
+      return (
+        <div key={post?.id}>
+          <h3>{post?.title}</h3>
+        </div>
+      )
+    })
 
     const onSubmit = async(e) => {
         e.preventDefault();
@@ -19,6 +37,9 @@ function Posts() {
             </div>
             <button style={{marginLeft:"100px"}}>Submit</button>
         </form>
+        <div>
+          {renderPost}
+        </div>
     </div>
   )
 }
