@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import CommentCreate from './CommentCreate';
 
 function Posts() {
     const [title, setTitle] = useState("");
@@ -16,8 +17,11 @@ function Posts() {
 
     const renderPost = Object.values(posts)?.map((post) => {
       return (
+        <div>
         <div key={post?.id}>
           <h3>{post?.title}</h3>
+        </div>
+        <CommentCreate postId={post.id} />
         </div>
       )
     })
