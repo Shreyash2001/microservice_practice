@@ -4,6 +4,7 @@
 /frontend/node_modules
 /comments/node_modules
 /posts/node_modules
+/posts/.dockerignore
 /event-bus/node_modules
 /query/node_modules
 /moderation/node_modules
