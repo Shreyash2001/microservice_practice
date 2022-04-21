@@ -7,7 +7,7 @@ function Posts() {
     const [posts, setPosts] = useState({});
 
     const fetchPost = async() => {
-      const {data} = await axios.get("http://localhost:4002/posts");
+      const {data} = await axios.get("http://posts.com/posts");
       setPosts(data);
     }
 
@@ -28,7 +28,7 @@ function Posts() {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-        const {data} = await axios.post("http://localhost:4000/posts", {title});
+        const {data} = await axios.post("http://posts.com/posts/create", {title});
         console.log(data);
         setTitle("");
     }
