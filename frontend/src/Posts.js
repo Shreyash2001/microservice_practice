@@ -39,7 +39,7 @@ function Posts() {
             <label>Title</label>
             <input style={{width:"300px", height:"30px", padding:"5px", marginLeft:"10px", marginBottom:"10px", fontSize:"16px"}} value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
-            <button style={{marginLeft:"100px"}}>Submit</button>
+            <button style={{marginLeft:"100px"}}>Submit button</button>
         </form>
         <div>
           {renderPost}
